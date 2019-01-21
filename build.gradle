@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    compile fileTree(dir: 'lib', include: '*.jar')
+
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'edu.gatech.oad.antlab.pkg1.AntLabMain'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+
+defaultTasks 'clean', 'jar'
