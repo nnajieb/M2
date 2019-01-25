@@ -30,11 +30,15 @@ public class Person5 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-        String myString = "";
-        for (int i = 2; i <= input.length() - 1; i++) {
-            myString += input.charAt(i);
-        }
-	    return myString + input.charAt(0) + input.charAt(1);
+        if (input.length() <= 2) {
+            return input;
+        } else {
+            String myString = "";
+            for (int i = 2; i <= input.length() - 1; i++) {
+                myString += input.charAt(i);
+            }
+	       return myString + input.charAt(0) + input.charAt(1);
+       }
 	}
 
 	/**
